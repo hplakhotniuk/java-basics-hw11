@@ -1,8 +1,7 @@
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static java.lang.Double.NaN;
-import static java.lang.Double.POSITIVE_INFINITY;
+import static java.lang.Double.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -15,18 +14,20 @@ public class LambdaTest {
                 {-1.0, 10.0, 10.0},
                 {0.0, 0.0, 0.0},
                 {-10.0, NaN, NaN},
-                {POSITIVE_INFINITY, 1e32, POSITIVE_INFINITY}
-                // TODO add 2 more test data here
+                {POSITIVE_INFINITY, 1e32, POSITIVE_INFINITY},
+                {NEGATIVE_INFINITY, NEGATIVE_INFINITY, NEGATIVE_INFINITY},
+                {115.6, 115.4, 115.6}
         };
     }
 
     @DataProvider(name = "sqrt")
     public static Object[][] sqrt() {
         return new Object[][]{
-                {25.0, 5.0},
-                {-1.0, NaN},
-                {POSITIVE_INFINITY, POSITIVE_INFINITY}
-                // TODO add 2 more test data here
+            {25.0, 5.0},
+            {-1.0, NaN},
+            {POSITIVE_INFINITY, POSITIVE_INFINITY},
+            {NEGATIVE_INFINITY, NaN},
+            {100.0,10.0}
         };
     }
 
